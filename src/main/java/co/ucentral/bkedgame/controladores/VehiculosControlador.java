@@ -3,10 +3,9 @@ package co.ucentral.bkedgame.controladores;
 import co.ucentral.bkedgame.dto.VehiculoDTO;
 import co.ucentral.bkedgame.servicios.VehiculoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/equipos")
@@ -19,5 +18,9 @@ public class VehiculosControlador {
         vehiculoServicio.agregarVehiculo(vehiculoDTO);
     }
 
+    @GetMapping("/listar-vehiculo")
+    public List<VehiculoDTO> listarVehiculos(){
+        return  vehiculoServicio.listarVehiculos();
+    }
 
 }
